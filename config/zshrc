@@ -17,6 +17,7 @@ zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 
 zinit snippet OMZP::sudo
+zinit snippet OMZP::git
 
 # Emacs mode and keybind fixes
 bindkey -e
