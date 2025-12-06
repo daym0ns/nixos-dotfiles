@@ -1,0 +1,37 @@
+version = 3
+final_space = true
+
+#[[blocks]]
+#  type = 'prompt'
+#  alignment = 'right'
+#
+#  [[blocks.segments]]
+#    style = 'plain'
+#    type = 'git'
+#
+#    [blocks.segments.properties]
+#      branch_icon = ''
+#      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    template = '{{ if hasPrefix .Path "~" }}{{ replace .Path "~" (env "HOME") }}{{ else }}{{ .Path }}{{ end }} '
+    foreground = 'blue'
+    type = 'path'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    template = '$'
+    foreground = 'white'
+    type = 'status'
+    style = 'plain'
+    foreground_templates = ['{{ if gt .Code 0 }}#42a9ff{{ end }}']
+
+    [blocks.segments.properties]
+      always_enabled = true

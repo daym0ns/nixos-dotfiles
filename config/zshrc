@@ -1,0 +1,61 @@
+# Set ZInit directory
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Install ZInit
+if [ ! -d $ZINIT_HOME ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source ZInit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Install Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
+
+zinit snippet OMZP::sudo
+
+# Emacs mode and keybind fixes
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# History stuff
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Load completions
+autoload -Uz compinit && compinit
+
+# Completion styling
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+# Aliases
+alias ls='ls --color'
+alias vim='nvim'
+alias ivm='nvim'
+alias vmi='nvim'
+alias vi='nvim'
+alias nc='nvim ~/nixos-dotfiles'
+alias nrs='sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos'
+
+# Shell Integrations
+eval "$(oh-my-posh init zsh --config '~/.config/ohmyposh/config.toml')"
+eval "$(fzf --zsh)"
+
+nitch -f
