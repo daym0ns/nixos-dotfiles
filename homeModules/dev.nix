@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     go
     gh
+    xhost
     xorg.xhost
-    xorg.xserver
   ];
 
 }
