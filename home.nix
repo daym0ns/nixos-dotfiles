@@ -17,6 +17,7 @@ in
 
   imports = [
     ./homeModules/hyprland.nix
+    ./homeModules/xmonad.nix
     ./homeModules/nvim.nix
     ./homeModules/zsh.nix
     ./homeModules/dev.nix

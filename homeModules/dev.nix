@@ -5,7 +5,9 @@
     go
     gh
     xhost
+    gnumake
     xorg.xhost
+    xorg.xinit
   ];
 
 }

@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./nixosModules/amd.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -29,10 +30,10 @@
     displayManager.sessionCommands = ''
       feh --bg-scale ~/.config/walls/wall3.jpg
     '';
-#    windowManager= {
-#      xmonad.enable = true;
-#      xmonad.enableContribAndExtras = true;
-#    };
+    windowManager= {
+      xmonad.enable = true;
+      xmonad.enableContribAndExtras = true;
+    };
   };
 
   programs.hyprland = {
