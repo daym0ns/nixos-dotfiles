@@ -55,8 +55,10 @@ alias vi='nvim'
 alias nc='nvim ~/nixos-dotfiles'
 alias nrs='sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos'
 
+# Environment variables
+export EDITOR='nvim'
+
 # Shell Integrations
 eval "$(oh-my-posh init zsh --config '~/.config/ohmyposh/config.toml')"
 eval "$(fzf --zsh)"
-
 nitch -f

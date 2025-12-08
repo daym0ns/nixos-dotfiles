@@ -21,15 +21,20 @@ in
     fzf
     git
     gcc
-    xclip
+    nodejs
     ripgrep
+
+    # clipboard managers
+    xclip
     wl-clipboard
-    
+
     # language servers
-    nil
-    gopls
     lua-language-server
-    haskell-language-server
+    zls
+    gopls
+
+    # formatters
+    stylua
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

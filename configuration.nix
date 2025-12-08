@@ -59,9 +59,9 @@
   environment.systemPackages = with pkgs; [
     unzip
     tree
+    vim
     wget
     git
-    vim
   ];
 
   fonts.packages = with pkgs; [

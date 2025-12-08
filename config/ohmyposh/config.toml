@@ -1,20 +1,9 @@
 version = 3
 final_space = true
 
-#[[blocks]]
-#  type = 'prompt'
-#  alignment = 'right'
-#
-#  [[blocks.segments]]
-#    style = 'plain'
-#    type = 'git'
-#
-#    [blocks.segments.properties]
-#      branch_icon = ''
-#      fetch_status = true
-
 [[blocks]]
   type = 'prompt'
+  newline = true
   alignment = 'left'
 
   [[blocks.segments]]
@@ -31,7 +20,7 @@ final_space = true
     foreground = 'white'
     type = 'status'
     style = 'plain'
-    foreground_templates = ['{{ if gt .Code 0 }}#42a9ff{{ end }}']
+    foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}']
 
     [blocks.segments.properties]
       always_enabled = true
